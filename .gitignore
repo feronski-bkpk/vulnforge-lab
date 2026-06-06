@@ -1,0 +1,22 @@
+# Базы данных (создаются при сборке контейнера)
+*.sqlite
+*.db
+
+# Бинарники
+vulnforge
+
+# Docker volumes
+docker-volumes/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log

@@ -1,0 +1,30 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: vf-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - sqli
+      - xss
+    networks:
+      - vulnforge-net
+
+  sqli:
+    build: ./modules/sqli
+    container_name: vf-sqli
+    networks:
+      - vulnforge-net
+
+  xss:
+    build: ./modules/xss
+    container_name: vf-xss
+    networks:
+      - vulnforge-net
+
+networks:
+  vulnforge-net:
+    name: vulnforge-net
+    driver: bridge
